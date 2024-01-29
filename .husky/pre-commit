@@ -3,3 +3,4 @@
 
 pnpm run lint
 pnpm exec prettier --check .
+pnpm run playwright
