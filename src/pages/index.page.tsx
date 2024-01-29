@@ -23,7 +23,9 @@ export default function Home() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2>Post form</h2>
           <div>
-            message: <input type="text" {...register("message")} />
+            <label>
+              message: <input type="text" {...register("message")} />
+            </label>
           </div>
           <button>submit</button>
         </form>
