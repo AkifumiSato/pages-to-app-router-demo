@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 export default function Success() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <>
@@ -12,7 +12,7 @@ export default function Success() {
       </Head>
       <main>
         <h1>Post success</h1>
-        <p>message: `{router.query.message ?? '[message is undefined]'}`</p>
+        <p>message: `{router.query.message ?? "[message is undefined]"}`</p>
         <Link href="/">top</Link>
       </main>
     </>

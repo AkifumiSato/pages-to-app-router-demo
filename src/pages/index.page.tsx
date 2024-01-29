@@ -1,17 +1,17 @@
 import Head from "next/head";
-import {SubmitHandler, useForm} from "react-hook-form";
-import {useRouter} from "next/router";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 
 type Inputs = {
-  message: string
-}
+  message: string;
+};
 
 export default function Home() {
-  const {register, handleSubmit} = useForm<Inputs>()
-  const router = useRouter()
+  const { register, handleSubmit } = useForm<Inputs>();
+  const router = useRouter();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    await router.push(`/success?message=${data.message}`)
-  }
+    await router.push(`/success?message=${data.message}`);
+  };
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function Home() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2>Post form</h2>
           <div>
-            message: <input type="text" {...register('message')}/>
+            message: <input type="text" {...register("message")} />
           </div>
           <button>submit</button>
         </form>
