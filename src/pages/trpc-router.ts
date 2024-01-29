@@ -1,4 +1,4 @@
-import { message } from "@/pages/actions";
+import { message } from "@/pages/message/actions";
 import { router } from "@/trpc/server";
 
 export const appRouter = router({

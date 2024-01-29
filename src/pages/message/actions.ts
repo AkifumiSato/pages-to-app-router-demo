@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { publicProcedure } from "@/trpc/server";
+import { publicProcedure, router } from "@/trpc/server";
 
-export const message = publicProcedure
+const create = publicProcedure
   .input(
     z.object({
       message: z.string(),
@@ -10,3 +10,7 @@ export const message = publicProcedure
   .mutation(async (data) => {
     return `[with trpc]: ${data.input.message}`;
   });
+
+export const message = router({
+  create,
+});
