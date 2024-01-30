@@ -18,7 +18,7 @@ export default function Success() {
           <h2 id={pageHeadingId}>message</h2>
           <p>`{router.query.message ?? "[message is undefined]"}`</p>
         </section>
-        <Link href="/public">top</Link>
+        <Link href="/">top</Link>
       </main>
     </>
   );
