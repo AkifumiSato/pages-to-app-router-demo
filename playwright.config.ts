@@ -1,4 +1,5 @@
-import { defineConfig, devices } from "@playwright/test";
+// import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices } from "next/experimental/testmode/playwright";
 
 /**
  * Read environment variables from file.
@@ -68,7 +69,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "pnpm clean-start",
+    // command: "pnpm clean-start:test",
+    command: "pnpm dev:test",
     url: "http://127.0.0.1:3000",
     reuseExistingServer: !process.env.CI,
   },

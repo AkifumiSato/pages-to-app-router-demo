@@ -1,11 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
+import { GetServerSideProps } from "next";
 
-type Inputs = {
-  message: string;
+type Product = Record<string, unknown>;
+
+type Props = {
+  product: Product;
 };
 
-export default function Home() {
+export default function Home({ product }: Props) {
   return (
     <>
       <Head>
@@ -16,7 +19,22 @@ export default function Home() {
         <div>
           <Link href="/message">message</Link>
         </div>
+        <h2>JSON data</h2>
+        <pre>
+          <code>{JSON.stringify(product, null, 2)}</code>
+        </pre>
       </main>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const product: Product = await fetch("https://dummyjson.com/products/1").then(
+    (res) => res.json(),
+  );
+  return {
+    props: {
+      product,
+    },
+  };
+};
